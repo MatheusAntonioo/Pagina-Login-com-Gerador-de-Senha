@@ -11,6 +11,16 @@ const lettersInput = document.querySelector("#letters");
 const numbersInput = document.querySelector("#numbers");
 const symbolsInput = document.querySelector("#symbols");
 
+
+// save ----------------
+const nameInput = document.querySelector("#name");
+
+const save = () => {
+  localStorage.setItem("nome", JSON.stringify(nameInput.value));
+};
+
+//-----------------------
+
 //  Funções
 const getLetterLowerCase = () => {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -78,6 +88,7 @@ generatePasswordButton.addEventListener("click", () => {
 
 openCloseGeneratorButton.addEventListener("click", () => {
   generatePasswordContainer.classList.toggle("hide");
+  save();
 });
 
 copyPasswordButton.addEventListener("click", (e) => {
